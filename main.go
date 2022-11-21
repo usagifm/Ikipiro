@@ -11,5 +11,10 @@ func main() {
 	models.ConnectDatabase()
 
 	r.GET("/api/barcode/:barcodeNumber", barcodecontroller.Find)
+	r.GET("/", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "Hello from the server side !",
+		})
+	})
 	r.Run()
 }
